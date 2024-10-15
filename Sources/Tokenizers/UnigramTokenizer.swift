@@ -36,7 +36,7 @@ class UnigramTokenizer: PreTrainedTokenizerModel {
     private let trie: Trie<Character>
         
     required init(tokenizerConfig: Config, tokenizerData: Config, addedTokens: [String : Int]) throws {
-        guard let configVocab = tokenizerData.model?.vocab?.value as? [[Any]] else {
+        guard let configVocab = tokenizerData.model?.vocab?.value as? [String: Int] else {
             throw TokenizerError.missingVocab
         }
         
